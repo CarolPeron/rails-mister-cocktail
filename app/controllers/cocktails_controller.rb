@@ -25,6 +25,15 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def destroy
+    @cocktail = Cocktail.find(params[:id])
+    if @cocktail.destroy
+      redirect_to root_path
+    else
+      redirect_to cocktail_path(@cocktail)
+    end
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.

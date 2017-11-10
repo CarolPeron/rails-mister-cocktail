@@ -17,7 +17,7 @@
       <h2>List of doses:</h2>
       <ul>
         <% @cocktail.doses.each do |dose| %>
-          <li><%= dose.ingredient.name %> - <%= dose.description %> | <%= dose.amount %> spoons</li>
+          <li><%= dose.ingredient.name %> - <%= dose.description %> | spoons</li>
           <%= link_to 'Edit', edit_dose_path(dose) %>
           <%= link_to 'Destroy', dose_path(dose), method: :delete %>
         <% end %>
@@ -26,6 +26,7 @@
 
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <%= link_to 'Back', cocktails_path %>
+      <%= link_to 'Destroy', cocktail_path(@cocktail), method: :delete, data: {confirm: 'Are you sure?' } %>
     </div>
   </div>
 </div>
